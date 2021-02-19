@@ -1,0 +1,46 @@
+# basic P/E calculator v.1.2
+# by MrSugo
+# committed by trustnoedo
+
+
+# Functions
+def conclusions(value):
+    if value >= very_high_pe:
+        print("This stock is very overvalued")
+    elif high_pe <= value <= very_high_pe:
+        print("This stock is a bit overvalued")
+    elif cheap <= value <= high_pe:
+        print("The stock's price reflects the company's value")
+    else:
+        print("You discovered a bargain issue!")
+
+def explanation():
+    print("\nWith a Share price of " + str(ShPr) + "$")
+    print(str(Ea) + " billions of earnings")
+    print("and a number of shares equal to " + str(NSh) + " billions")
+
+
+# Considerations
+very_high_pe = 50
+high_pe = 30
+cheap = 15
+
+
+# Inputs
+try:
+    ShPr = float(input("Share price: "))
+    Ea = float(input("Earnings (in billions): "))
+    NSh = float(input("Number of shares (in billions): "))
+except:
+    print("\nINVALID INPUT")
+    quit()
+
+
+# How it works
+result = ShPr / Ea * NSh
+print("\nthe P/E ration is the ratio of a company's share price to the company's earnings per share")
+explanation()
+print("\nP/E ratio is " + str(round(result, 2)))
+conclusions(result)
+
+# Thank you for attention!
